@@ -1,4 +1,6 @@
 ﻿#include "Framework.h"
+
+#include <assert.h>
 #include <utility>
 
 namespace rui {
@@ -13,4 +15,18 @@ namespace rui {
     {
 
     }
-} // rui
+
+    void Framework::Update()
+    {
+        for (const auto& window : m_PlatformWindows)
+        {
+
+        }
+    }
+
+    void* Framework::GetNativeWindowFromHandle(PlatformWindowHandle handle)
+    {
+        assert(false);
+        return nullptr;
+    }
+}

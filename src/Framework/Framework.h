@@ -1,6 +1,8 @@
 ﻿#pragma once
 
 #include <functional>
+#include "PlatformWindow.h"
+#include "PlatformWindowHandle.h"
 #include "Core/Core.h"
 
 namespace rui {
@@ -25,11 +27,14 @@ namespace rui {
         explicit Framework(FrameworkCreateInfo info);
         ~Framework();
 
+        void Update();
+
+        void* GetNativeWindowFromHandle(PlatformWindowHandle handle);
 
     private:
         FrameworkCreateInfo m_CreateInfo;
 
-
+        std::vector<Ref<PlatformWindow>> m_PlatformWindows;
     };
 
 }
