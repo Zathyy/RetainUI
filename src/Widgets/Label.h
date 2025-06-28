@@ -2,12 +2,15 @@
 
 #include "Widget.h"
 
-    namespace rui {
+namespace rui {
 
-    class Label : public Widget
+    class RUI_API Label : public Widget
     {
     public:
+        void SetText(const String& text);
 
+    private:
+        String m_Text;
     };
 
 }

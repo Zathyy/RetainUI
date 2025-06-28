@@ -6,7 +6,7 @@
 
 namespace rui {
 
-    class ButtonBase : public Widget
+    class RUI_API ButtonBase : public Widget
     {
     public:
 

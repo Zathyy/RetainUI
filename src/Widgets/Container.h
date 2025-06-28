@@ -4,7 +4,7 @@
 
 namespace rui {
 
-    class Container : public Widget
+    class RUI_API Container : public Widget
     {
     public:
 

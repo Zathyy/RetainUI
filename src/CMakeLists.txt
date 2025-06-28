@@ -12,6 +12,9 @@ target_sources(RetainUI PRIVATE ${CORE_SOURCES})
 file(GLOB_RECURSE WIDGETS_SOURCES Widgets/*.cpp Widgets/*.h)
 target_sources(RetainUI PRIVATE ${WIDGETS_SOURCES})
 
+file(GLOB_RECURSE FRAMEWORK_SOURCES Framework/*.cpp Framework/*.h)
+target_sources(RetainUI PRIVATE ${FRAMEWORK_SOURCES})
+
 file(GLOB_RECURSE MATH_SOURCES Math/*.cpp Math/*.h)
 target_sources(RetainUI PRIVATE ${MATH_SOURCES})
 
