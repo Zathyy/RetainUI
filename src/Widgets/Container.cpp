@@ -1,8 +1,7 @@
-﻿//
-// Created by Patrik on 2025-06-28.
-//
-
-#include "Container.h"
+﻿#include "Container.h"
 
 namespace rui {
-} // rui
+
+
+
+}

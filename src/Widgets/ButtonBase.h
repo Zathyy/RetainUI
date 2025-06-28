@@ -6,16 +6,16 @@
 
 namespace rui {
 
-class ButtonBase : public Widget
-{
-public:
+    class ButtonBase : public Widget
+    {
+    public:
 
 
 
-protected:
+    protected:
 
-    std::function<void()> onClick;
-    std::function<void()> onHover;
-};
+        std::function<void()> onClick;
+        std::function<void()> onHover;
+    };
 
 }

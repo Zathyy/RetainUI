@@ -2,9 +2,9 @@
 
 #include "Widget.h"
 
-namespace rui {
+    namespace rui {
 
-    class Container : public Widget
+    class Label : public Widget
     {
     public:
 
