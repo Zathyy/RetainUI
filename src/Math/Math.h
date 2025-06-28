@@ -9,8 +9,9 @@ namespace rui::math {
 
     constexpr float PI = std::numbers::pi_v<float>;
     constexpr float HalfPI = PI * 0.5f;
+    constexpr float TwoPI = PI * 2.0f;
 
-    constexpr float RadiansToDegrees = (180.0f / PI);
+    constexpr float RadiansToDegrees = 180.0f / PI;
     constexpr float DegreesToRadians = PI / 180.0f;
 
     constexpr float ZeroTolerance = 1e-6f;

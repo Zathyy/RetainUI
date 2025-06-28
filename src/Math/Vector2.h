@@ -20,7 +20,7 @@ namespace rui {
 
         Vector2() = default;
 
-        Vector2(const float xy)
+        explicit Vector2(const float xy)
             : X(xy),
               Y(xy)
         {
