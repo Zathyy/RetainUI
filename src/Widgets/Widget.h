@@ -27,6 +27,7 @@ namespace rui {
 
     public:
 
+        FORCE_INLINE bool HasChildren() const { return !m_Children.empty(); }
         FORCE_INLINE Widget* GetParent() const
         {
             return m_Parent.get();
@@ -38,9 +39,6 @@ namespace rui {
             return m_Children;
         }
 
-    public:
-        uint32 zIndex = 0;
-
     protected:
         Ref<Widget> m_Parent = nullptr;
         Rect m_Rect;
@@ -48,4 +46,3 @@ namespace rui {
     };
 
 }
-

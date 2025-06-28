@@ -18,12 +18,12 @@ namespace rui::math {
 
     FORCE_INLINE float DegToRad(const float Deg)
     {
-        return Deg * Deg2Rad;
+        return Deg * DegreesToRadians;
     }
 
     FORCE_INLINE float RadToDeg(const float Rad)
     {
-        return Rad * Rad2Deg;
+        return Rad * RadiansToDegrees;
     }
 
     template<typename A>

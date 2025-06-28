@@ -1,4 +1,4 @@
-﻿option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+﻿option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
 if(BUILD_SHARED_LIBS)
     add_library(RetainUI SHARED)
