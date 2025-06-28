@@ -18,4 +18,6 @@
   #define RUI_API
 #endif
 
+#define FORCE_INLINE __forceinline
 
+#define NODISCARD [[nodiscard]]
