@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "DrawList.h"
+#include "DrawData.h"
 #include "InteractableWindow.h"
 #include "Core/Core.h"
 #include "Core/Primitives.h"
@@ -28,7 +28,7 @@ namespace rui {
 
     private:
         std::vector<Ref<InteractableWindow>> m_InteractableWindows;
-        DrawList m_DrawList;
+        DrawData m_DrawList;
         PlatformWindowHandle m_Handle;
         void* m_NativeWindow;
     };
