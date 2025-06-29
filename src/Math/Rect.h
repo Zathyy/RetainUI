@@ -1,23 +1,24 @@
 ﻿#pragma once
 
-#include "Vector2.h"
 #include "Core/Core.h"
+#include "Math.h"
+#include "Point.h"
 
 namespace rui {
 
     struct RUI_API Rect
     {
-        Vector2 Extent { 0 };
-        Vector2 Offset { 0 };
+        Point Extent;
+        Point Offset;
 
         Rect() = default;
 
-        Rect(const Vector2& extent, const Vector2& offset)
+        Rect(const Point& extent, const Point& offset)
             : Extent(extent), Offset(offset)
         {
         }
 
-        explicit Rect(const Vector2& extent)
+        explicit Rect(const Point& extent)
             : Extent(extent)
         {
         }
@@ -27,11 +28,10 @@ namespace rui {
         NODISCARD float Width() const { return Extent.X; }
         NODISCARD float Height() const { return Extent.Y; }
 
-        NODISCARD Vector2 Position() const { return Offset; }
-        NODISCARD Vector2 Size() const { return Extent; }
+        NODISCARD Point Position() const { return Offset; }
+        NODISCARD Point Size() const { return Extent; }
 
-
-        NODISCARD bool Contains(const Vector2& point) const
+        NODISCARD bool Contains(const Point& point) const
         {
             return point.X >= Offset.X && point.X <= Offset.X + Extent.X &&
                    point.Y >= Offset.Y && point.Y <= Offset.Y + Extent.Y;
