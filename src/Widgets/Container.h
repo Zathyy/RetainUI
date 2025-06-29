@@ -7,7 +7,7 @@ namespace rui {
     class RUI_API Container : public Widget
     {
     public:
-
+        Container();
     };
 
 }

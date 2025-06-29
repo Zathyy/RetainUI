@@ -23,10 +23,10 @@ namespace rui {
         {
         }
 
-        NODISCARD float X() const { return Offset.X; }
-        NODISCARD float Y() const { return Offset.Y; }
-        NODISCARD float Width() const { return Extent.X; }
-        NODISCARD float Height() const { return Extent.Y; }
+        NODISCARD int32 X() const { return Offset.X; }
+        NODISCARD int32 Y() const { return Offset.Y; }
+        NODISCARD int32 Width() const { return Extent.X; }
+        NODISCARD int32 Height() const { return Extent.Y; }
 
         NODISCARD Point Position() const { return Offset; }
         NODISCARD Point Size() const { return Extent; }
@@ -37,20 +37,20 @@ namespace rui {
                    point.Y >= Offset.Y && point.Y <= Offset.Y + Extent.Y;
         }
 
-        NODISCARD Rect Inflate(const float amount) const
+        NODISCARD Rect Inflate(const int32 amount) const
         {
             return {
-                { Extent.X + amount * 2.0f, Extent.Y + amount * 2.0f },
+                { Extent.X + amount * 2, Extent.Y + amount * 2 },
                 { Offset.X - amount, Offset.Y - amount }
             };
         }
 
         NODISCARD Rect Intersect(const Rect& other) const
         {
-            float x1 = math::Max(Offset.X, other.Offset.X);
-            float y1 = math::Max(Offset.Y, other.Offset.Y);
-            float x2 = math::Min(Offset.X + Extent.X, other.Offset.X + other.Extent.X);
-            float y2 = math::Min(Offset.Y + Extent.Y, other.Offset.Y + other.Extent.Y);
+            int32 x1 = math::Max(Offset.X, other.Offset.X);
+            int32 y1 = math::Max(Offset.Y, other.Offset.Y);
+            int32 x2 = math::Min(Offset.X + Extent.X, other.Offset.X + other.Extent.X);
+            int32 y2 = math::Min(Offset.Y + Extent.Y, other.Offset.Y + other.Extent.Y);
 
             if (x2 <= x1 || y2 <= y1)
                 return Rect();

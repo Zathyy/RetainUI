@@ -24,6 +24,8 @@ namespace rui {
         NODISCARD PlatformWindowHandle GetHandle() const { return m_Handle; }
         NODISCARD void* GetNativeWindow() const { return m_NativeWindow; }
 
+
+
     private:
         std::vector<Ref<InteractableWindow>> m_InteractableWindows;
         DrawList m_DrawList;

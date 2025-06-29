@@ -12,6 +12,9 @@ namespace rui {
     /// </summary>
     class RUI_API Widget
     {
+    protected:
+        typedef Widget base;
+
     public:
         virtual ~Widget() {}
 
@@ -28,7 +31,7 @@ namespace rui {
 
         FORCE_INLINE Widget* GetParent() const
         {
-            return m_Parent.get();
+            return m_Parent.lock().get();
         }
 
         FORCE_INLINE Rect GetRect() const
@@ -37,8 +40,17 @@ namespace rui {
         }
 
     protected:
-        Ref<Widget> m_Parent = nullptr;
+        std::weak_ptr<Widget> m_Parent;
         Rect m_Rect;
+
+        int32 m_Width = 0;
+        int32 m_Height = 0;
+
+        int32 m_MinWidth = 0;
+        int32 m_MaxWidth = 0;
+
+        int32 m_MinHeight = 0;
+        int32 m_MaxHeight = 0;
     };
 
 }
