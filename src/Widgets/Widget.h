@@ -15,11 +15,11 @@ namespace rui {
     public:
         virtual ~Widget() {}
 
-        bool OnMouseMove(int32 x, int32 y);
-        bool OnMouseDown(int32 x, int32 y);
-        bool OnMouseUp(int32 x, int32 y);
-        bool OnMouseLeave();
-        bool OnMouseEnter();
+        virtual bool OnMouseMove(const Point& point);
+        virtual bool OnMouseDown(const Point& point);
+        virtual bool OnMouseUp(const Point& point);
+        virtual bool OnMouseLeave();
+        virtual bool OnMouseEnter();
 
         void SetParent(Ref<Widget> parent);
         void SetRect(const Rect& rect);
@@ -30,7 +30,9 @@ namespace rui {
         {
             return m_Parent.get();
         }
-        FORCE_INLINE Rect GetRect() const {
+
+        FORCE_INLINE Rect GetRect() const
+        {
             return m_Rect;
         }
 

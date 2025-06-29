@@ -13,7 +13,6 @@ namespace rui {
 
     Framework::~Framework()
     {
-
     }
 
     void Framework::Update()
@@ -24,9 +23,16 @@ namespace rui {
         }
     }
 
-    void* Framework::GetNativeWindowFromHandle(PlatformWindowHandle handle)
+    void* Framework::GetNativeWindowFromHandle(const PlatformWindowHandle handle) const
     {
-        assert(false);
+        for (const auto& window : m_PlatformWindows)
+        {
+            if (window->GetHandle() == handle)
+            {
+                return window->GetNativeWindow();
+            }
+        }
+
         return nullptr;
     }
 }

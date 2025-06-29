@@ -10,8 +10,19 @@ namespace rui {
     class RUI_API FrameworkCallbacks
     {
     public:
+        /// <summary>
+        /// Called then RetainUI Wants to create a new window
+        /// </summary>
         std::function<void()> OnCreateWindow;
+
+        /// <summary>
+        /// Called when RetainUI wants to destroy a certain window
+        /// </summary>
         std::function<void()> OnDestroyWindow;
+
+        /// <summary>
+        /// Called when RetainUI wants to resize a particular window
+        /// </summary>
         std::function<void()> OnResize;
     };
 
@@ -21,6 +32,10 @@ namespace rui {
 
     };
 
+    /// <summary>
+    /// Framework is the Manager in RetainUI.
+    /// It manages states, windows
+    /// </summary>
     class RUI_API Framework
     {
     public:
@@ -29,7 +44,10 @@ namespace rui {
 
         void Update();
 
-        void* GetNativeWindowFromHandle(PlatformWindowHandle handle);
+        /// <summary>
+        /// Gets the Native window as a void*
+        /// </summary>
+        NODISCARD void* GetNativeWindowFromHandle(PlatformWindowHandle handle) const;
 
     private:
         FrameworkCreateInfo m_CreateInfo;
