@@ -6,8 +6,14 @@ namespace rui {
 
     struct Vertex
     {
-        Vector2 Position;
-        Vector2 Uv;
+        Vertex() = default;
+        Vertex(const Vector2 &pos, const Vector2 &uv)
+            : position(pos), uv(uv)
+        {
+        }
+
+        Vector2 position;
+        Vector2 uv;
     };
 }
 

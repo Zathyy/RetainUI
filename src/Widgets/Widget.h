@@ -3,6 +3,7 @@
 #include <memory>
 #include <vector>
 #include "Math/Rect.h"
+#include "Math/Vector2.h"
 
 namespace rui {
 
@@ -12,9 +13,6 @@ namespace rui {
     /// </summary>
     class RUI_API Widget
     {
-    protected:
-        typedef Widget base;
-
     public:
         virtual ~Widget() {}
 
@@ -24,8 +22,12 @@ namespace rui {
         virtual bool OnMouseLeave();
         virtual bool OnMouseEnter();
 
-        void SetParent(Ref<Widget> parent);
+        void SetParent(const Ref<Widget> &parent);
         void SetRect(const Rect& rect);
+
+        virtual Vector2 ComputeDesiredSize();
+
+        virtual void Layout(const Rect& availableRect);
 
     public:
 
@@ -43,8 +45,8 @@ namespace rui {
         std::weak_ptr<Widget> m_Parent;
         Rect m_Rect;
 
-        int32 m_Width = 0;
-        int32 m_Height = 0;
+        float m_Margin = 0.0f;
+        float m_Padding = 0.0f;
 
         int32 m_MinWidth = 0;
         int32 m_MaxWidth = 0;

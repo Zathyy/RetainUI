@@ -19,7 +19,7 @@ namespace rui {
     {
         for (const auto& window : m_PlatformWindows)
         {
-
+            window->Update();
         }
     }
 

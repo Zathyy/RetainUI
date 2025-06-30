@@ -2,5 +2,8 @@
 
 namespace rui {
 
+    void PlatformWindow::Update()
+    {
 
+    }
 }

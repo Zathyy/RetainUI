@@ -4,8 +4,7 @@
 if(BUILD_SHARED_LIBS)
     add_library(RetainUI SHARED)
 else()
-    add_library(RetainUI STATIC
-            ../Examples/opengl_glfw/test.ixx)
+    add_library(RetainUI STATIC)
 endif()
 
 file(GLOB_RECURSE CORE_SOURCES Core/*.cpp Core/*.h)

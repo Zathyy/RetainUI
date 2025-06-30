@@ -1,7 +1,5 @@
 #pragma once
 
-#include <ostream>
-
 #include "Math.h"
 #include "Core/Core.h"
 
@@ -17,44 +15,29 @@ namespace rui {
             seed ^= (seed << 6) + (seed >> 2) + 0x6DE9118D + static_cast<std::size_t>(obj.Y);
             seed ^= (seed << 6) + (seed >> 2) + 0x631B2F2D + static_cast<std::size_t>(obj.Z);
             seed ^= (seed << 6) + (seed >> 2) + 0x532AE062 + static_cast<std::size_t>(obj.W);
-            seed ^= (seed << 6) + (seed >> 2) + 0x1587BC3C + static_cast<std::size_t>(obj.R);
-            seed ^= (seed << 6) + (seed >> 2) + 0x17B41F75 + static_cast<std::size_t>(obj.G);
-            seed ^= (seed << 6) + (seed >> 2) + 0x69721378 + static_cast<std::size_t>(obj.B);
-            seed ^= (seed << 6) + (seed >> 2) + 0x4E4E81DE + static_cast<std::size_t>(obj.A);
             return seed;
         }
 
     public:
-        union
+
+        float X;
+        float Y;
+        float Z;
+        float W;
+
+        Vector4() = default;
+
+        explicit Vector4(const float xyzw)
         {
-            struct
-            {
-                float X;
-
-                float Y;
-
-                float Z;
-
-                float W;
-            };
-
-            struct
-            {
-                float R;
-
-                float G;
-
-                float B;
-
-                float A;
-            };
-
-            float Raw[4];
-        };
+            X = xyzw;
+            Y = xyzw;
+            Z = xyzw;
+            W = xyzw;
+        }
 
         NODISCARD const float* ValuePtr() const
         {
-            return Raw;
+            return &X;
         }
 
         static bool Equals(const Vector4 &lhs, const Vector4 &rhs)

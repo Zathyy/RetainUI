@@ -23,10 +23,12 @@ namespace rui {
         {
         }
 
-        NODISCARD int32 X() const { return Offset.X; }
+        NODISCARD float X() const { return Offset.X; }
         NODISCARD int32 Y() const { return Offset.Y; }
         NODISCARD int32 Width() const { return Extent.X; }
+        NODISCARD int32 Width() { return Extent.X; }
         NODISCARD int32 Height() const { return Extent.Y; }
+        NODISCARD int32 Height() { return Extent.Y; }
 
         NODISCARD Point Position() const { return Offset; }
         NODISCARD Point Size() const { return Extent; }

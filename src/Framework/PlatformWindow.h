@@ -13,10 +13,12 @@ namespace rui {
     {
         uint32 width;
         uint32 height;
+        void* nativeWindow;
     };
 
     class RUI_API PlatformWindow
     {
+        friend class Framework;
     public:
         PlatformWindow();
         ~PlatformWindow();
@@ -24,11 +26,13 @@ namespace rui {
         NODISCARD PlatformWindowHandle GetHandle() const { return m_Handle; }
         NODISCARD void* GetNativeWindow() const { return m_NativeWindow; }
 
+    private:
+        void Update();
 
 
     private:
         std::vector<Ref<InteractableWindow>> m_InteractableWindows;
-        DrawData m_DrawList;
+        DrawData m_DrawData;
         PlatformWindowHandle m_Handle;
         void* m_NativeWindow;
     };

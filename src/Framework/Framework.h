@@ -13,17 +13,17 @@ namespace rui {
         /// <summary>
         /// Called then RetainUI Wants to create a new window
         /// </summary>
-        std::function<void()> OnCreateWindow;
+        std::function<void(PlatformWindow&)> OnCreateWindow;
 
         /// <summary>
         /// Called when RetainUI wants to destroy a certain window
         /// </summary>
-        std::function<void()> OnDestroyWindow;
+        std::function<void(PlatformWindow&)> OnDestroyWindow;
 
         /// <summary>
         /// Called when RetainUI wants to resize a particular window
         /// </summary>
-        std::function<void()> OnResize;
+        std::function<void(PlatformWindow&)> OnResize;
     };
 
     struct RUI_API FrameworkCreateInfo

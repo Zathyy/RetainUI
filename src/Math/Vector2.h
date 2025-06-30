@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "Math.h"
+#include "Point.h"
 #include "Core/Core.h"
 
 namespace rui {
@@ -26,6 +27,12 @@ namespace rui {
         {
         }
 
+        explicit Vector2(const Point& point)
+            : X(static_cast<float>(point.X)),
+              Y(static_cast<float>(point.Y))
+        {
+        }
+
         Vector2(const float& x, const float& y)
             : X(x),
               Y(y)
@@ -36,6 +43,11 @@ namespace rui {
             : X(other.X),
               Y(other.Y)
         {
+        }
+
+        NODISCARD Point ToPoint() const
+        {
+            return {static_cast<int32>(X), static_cast<int32>(Y)};
         }
 
         static bool Equals(const Vector2& first, const Vector2& second)
@@ -53,6 +65,14 @@ namespace rui {
         bool operator!=(const Vector2& other) const
         {
             return !Equals(*this, other);
+        }
+
+        Vector2 operator+(const Vector2& v) const
+        {
+            Vector2 temp = *this;
+            temp.X += v.X;
+            temp.Y += v.Y;
+            return temp;
         }
 
         Vector2 operator-(const Vector2 & rh) const
