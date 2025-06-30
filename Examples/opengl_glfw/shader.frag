@@ -8,9 +8,9 @@ layout(location = 0) out vec4 Out;
 uniform vec4 u_BackgroundColor; // RGBA
 uniform vec4 u_BorderColor;     // RGBA
 uniform float u_BorderThickness; // pixels
+
 uniform sampler2D u_Texture;
-uniform int u_UseTexture;       // 0 or 1
-uniform int u_TextureHasRGB;    // 0 = font mask, 1 = full color image
+uniform int u_TextureUsage;       // 0 = disabled, 1 = font mask, 2 = full color image
 
 uniform vec2 u_Size;    // widget size in pixels
 uniform float u_Radius; // corner radius in pixels
@@ -43,21 +43,19 @@ void main() {
         }
     }
 
-    // Sample texture
-    vec4 texColor = vec4(1.0);
-    if (u_UseTexture == 1) {
-        texColor = texture(u_Texture, o_TexCoords);
-    }
+    vec4 baseColor = u_backgroundcolor;
 
-    vec4 baseColor = u_BackgroundColor;
+    if (u_TextureUsage > 0)
+    {
+        vec4 texColor = texture(u_texture, o_texcoords);
 
-    if (u_UseTexture == 1) {
-        if (u_TextureHasRGB == 1) {
-            // It's an image: use texture RGB, multiply by background as tint
-            baseColor = vec4(texColor.rgb, 1.0) * u_BackgroundColor;
-        } else {
-            // It's a font mask: only use alpha
+        if (u_textureusage == 1)
+        {
             baseColor.a *= texColor.a;
+        }
+        else if (u_textureusage == 2)
+        {
+            baseColor = vec4(texColor.rgb, 1.0) * u_backgroundcolor;
         }
     }
 
